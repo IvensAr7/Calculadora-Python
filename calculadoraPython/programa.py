@@ -23,3 +23,21 @@ OPÇÕES:
         op = input('Escolha uma opção: ')
         if op not in ['0', '1', '2', '3', '4'] :
             print('Erro: Opção inexistente')
+            continue
+        break
+    return op
+
+
+def opcs(op):
+    if op == '1':
+        resultado = soma(n1, n2)
+    elif op == '2':
+        resultado = soma(n1, n2)
+    elif op == '3':
+        resultado = soma(n1, n2)
+    elif op == '4':
+        resultado = soma(n1, n2)
+    else:
+        return True
+    return 
+    
