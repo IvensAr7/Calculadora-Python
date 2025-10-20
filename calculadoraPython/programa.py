@@ -1,6 +1,7 @@
 from operacoes import *
 
 def menu():
+    print('CALCULADORA PYTHON - por IvensAr7')
     while True:
         try:
             n1 = int(input('Digite o primeiro número: '))
@@ -10,8 +11,6 @@ def menu():
             print('Erro: Número inválido')
 
     print('''
-CALCULADORA PYTHON - Por Ivens    
-
 OPÇÕES:
     [ 1 ]   ADIÇÃO
     [ 2 ]   SUBTRAÇÃO
@@ -25,19 +24,29 @@ OPÇÕES:
             print('Erro: Opção inexistente')
             continue
         break
-    return op
+    return op, n1, n2
 
 
-def opcs(op):
+def opcs(op, n1, n2):
     if op == '1':
         resultado = soma(n1, n2)
     elif op == '2':
-        resultado = soma(n1, n2)
+        resultado = sub(n1, n2)
     elif op == '3':
-        resultado = soma(n1, n2)
+        resultado = mult(n1, n2)
     elif op == '4':
-        resultado = soma(n1, n2)
-    else:
-        return True
-    return 
+        resultado = div(n1, n2)
+    return resultado
+
+def main():
+    op, a, b = menu()
     
+    if op == '0':
+        return print('FINALIZANDO PROGRAMA')
+    else:
+        result = opcs(op, a, b)
+        print(f'Resultado: {result}')
+    
+    
+if __name__ == '__main__':
+    main()
