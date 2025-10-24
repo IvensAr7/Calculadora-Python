@@ -1,4 +1,12 @@
 from operacoes import *
+import colorama
+
+
+class C :
+    R = colorama.Fore.RED
+    G = colorama.Fore.GREEN
+    Y = colorama.Fore.YELLOW
+    X = colorama.Style.RESET_ALL
 
 def menu():
     print('CALCULADORA PYTHON - por IvensAr7')
@@ -38,14 +46,28 @@ def opcs(op, n1, n2):
         resultado = div(n1, n2)
     return resultado
 
+
+def exit():
+    while True:
+        op = input("Deseja continuar? [S/N]").strip().upper()
+        if op == 'S':
+            return False
+        elif op == 'N':
+            return True
+        else:
+            print('Erro: Opção inválida')
+
+
 def main():
-    op, a, b = menu()
-    
-    if op == '0':
-        return print('FINALIZANDO PROGRAMA')
-    else:
-        result = opcs(op, a, b)
-        print(f'Resultado: {result}')
+    while True:
+        op, a, b = menu()
+        if op == '0':
+            return print('FINALIZANDO PROGRAMA')
+        else:
+            result = opcs(op, a, b)
+            print(f'{C.Y}Resultado: {result}{C.X}')
+        if exit():
+            break
     
     
 if __name__ == '__main__':
