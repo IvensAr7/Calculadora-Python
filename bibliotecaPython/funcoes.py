@@ -22,11 +22,29 @@ def addLivro(biblioteca):
 
 
 def emprestarLivro(biblioteca):
-    input("diz o livro ")
+    titulos = [livro['titulo'] for livro in biblioteca]
+    while True:
+        title = input('Digite o título do livro: ').strip().lower()
+        if title not in titulos:
+            print('Livro não encontrado na biblioteca, tente novamente')
+            continue
+        break
+    pos = titulos.index(title)
+    biblioteca[pos]['status'] = f'{C.Y}EMPRESTADO{C.RESET}'
+    return biblioteca
+        
     
-
-
-
+def devolverLivro(biblioteca):
+    titulos = [livro['titulo'] for livro in biblioteca]
+    while True:
+        title = input('Digite o título do livro: ').strip().lower()
+        if title not in titulos:
+            print('Livro não encontrado na biblioteca, tente novamente')
+            continue
+        break
+    pos = titulos.index(title)
+    biblioteca[pos]['status'] = f'{C.G}DISPONÍVE{C.RESET}'
+    return biblioteca
 
 
 def exibirLivros(biblioteca):
