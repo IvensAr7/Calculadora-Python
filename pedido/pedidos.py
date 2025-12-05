@@ -1,16 +1,18 @@
 from cardapio import *
-
+from tabulate import *
 
 def novoPedido(lst):
     pedido = []
+
     print('Adicione itens ao seu pedido')
+    
     while True:
         exibir(lst)
         
         while True:
             try:    
                 id = int(input('Digite o ID o seu pedido: '))
-                if 0 < id <= len(lst):
+                if 0 <= id < len(lst):
                     break
                 print('Valor inválido')
             except ValueError:
@@ -36,7 +38,7 @@ def novoPedido(lst):
             op = input('Deseja adicionar mais um item? [S/N] \n : ').strip().upper()
             match op:
                 case 'S':
-                    continue
+                    break
                 case 'N':
                     return pedido
                 case _:
